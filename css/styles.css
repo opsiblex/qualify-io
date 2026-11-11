@@ -1,4 +1,4 @@
-/* QUALIFY.IO â€” brand system. Change these variables to reskin the whole website. */
+/* QUALIFY.IO - brand system. Change these variables to reskin the whole website. */
 :root {
   --navy: #142851;
   --navy-2: #1d3262;
@@ -81,7 +81,7 @@ h1,h2,h3,h4,p{margin-top:0;}
 .solution-icon{width:54px;height:54px;border-radius:14px;display:grid;place-items:center;background:#edf1ff;color:#5b7fdd;margin-bottom:21px;}.solution-icon.tone-1{background:#fff1e6;color:#f58b2a}.solution-icon .icon{width:27px;height:27px;}
 .solution-card h3{font-size:17px;color:var(--navy);margin:0 0 11px;letter-spacing:-.35px;}.solution-card p {font-size:13px;color:var(--muted);line-height:1.75;min-height:93px;margin-bottom:15px;}
 .how-section{margin-top:72px;background:linear-gradient(180deg,#f5f7fd,#fcfbfb);padding:75px 0 82px;}.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;}
-.step {background:white;border-radius:15px;padding:23px 20px;border:1px solid var(--line);position:relative;min-height:205px;}.step:not(:last-child)::after {content:'â†’';color:#7d94cc;font-size:26px;position:absolute;right:-22px;top:45%;z-index:2;}.step-icon{width:44px;height:44px;border-radius:11px;display:grid;place-items:center;background:#eff2ff;color:#5a7dd2;margin-bottom:17px;}.step:nth-child(2) .step-icon,.step:nth-child(4) .step-icon{background:#fff0e4;color:var(--orange)}.step>b{color:#9cabd3;font-size:11px;letter-spacing:1px;}.step h3{font-size:17px;color:var(--navy);margin:4px 0 7px;}.step p{font-size:12px;color:var(--muted);margin:0;line-height:1.6;}
+.step {background:white;border-radius:15px;padding:23px 20px;border:1px solid var(--line);position:relative;min-height:205px;}.step-icon{width:44px;height:44px;border-radius:11px;display:grid;place-items:center;background:#eff2ff;color:#5a7dd2;margin-bottom:17px;}.step:nth-child(2) .step-icon,.step:nth-child(4) .step-icon{background:#fff0e4;color:var(--orange)}.step>b{color:#9cabd3;font-size:11px;letter-spacing:1px;}.step h3{font-size:17px;color:var(--navy);margin:4px 0 7px;}.step p{font-size:12px;color:var(--muted);margin:0;line-height:1.6;}
 .resource-feature{display:grid;grid-template-columns:250px 1fr;align-items:center;gap:50px;position:relative;overflow:hidden;border-radius:22px;margin-top:78px;min-height:285px;padding:35px 65px;background:linear-gradient(110deg,#f1f3fd 0%,#fff 59%,#eff2ff 100%);border:1px solid var(--line);}
 .resource-paper{width:195px;height:235px;background:white;border-radius:9px;transform:rotate(-10deg);box-shadow:0 18px 22px rgba(46,65,123,.15);padding:20px 19px;position:relative;z-index:2;border:1px solid #e9ebf5;display:flex;flex-direction:column;}
 .paper-logo{font-size:15px;font-weight:820;color:var(--navy);letter-spacing:-1px;margin-bottom:30px;}.paper-logo span{color:var(--orange)}.resource-paper strong{font-size:20px;line-height:1.18;color:var(--navy);letter-spacing:-.8px;}.paper-mark{display:grid;place-items:center;color:var(--orange);border:2px solid var(--blue);border-radius:12px;width:47px;height:47px;margin-top:auto}.paper-mark .icon{width:29px;height:29px;}
@@ -98,7 +98,7 @@ h1,h2,h3,h4,p{margin-top:0;}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.sr-only:focus{position:fixed;top:8px;left:8px;width:auto;height:auto;padding:10px 12px;margin:0;background:white;clip:auto;z-index:999}
 
-/* Editorial blog article layout â€” all future articles share these styles. */
+/* Editorial blog article layout - all future articles share these styles. */
 .article-page{background:var(--paper)}
 .article-shell{max-width:970px;padding-top:52px;padding-bottom:88px}
 .article-back,.article-bottom-nav a{font-size:13px;font-weight:700;color:#5876c6}
@@ -132,7 +132,7 @@ h1,h2,h3,h4,p{margin-top:0;}
 .webinar-description{font-size:13px;line-height:1.6;color:var(--muted);position:relative;z-index:2;margin:0 0 18px;max-width:270px;}
 .webinar-card .webinar-link{white-space:normal;}
 
-/* Customer Service Rush â€” gated, inline 2D game under blog article #2 */
+/* Customer Service Rush - gated, inline 2D game under blog article #2 */
 .blog-game-section{margin:62px auto 0;padding:35px;border-radius:25px;background:linear-gradient(125deg,#f0f4ff 0%,#fcfbf9 55%,#fff2e7 100%);border:1px solid #e1e7f3;box-shadow:0 12px 30px rgba(28,45,96,.045);scroll-margin-top:30px}
 .blog-game-heading{max-width:780px;margin:0 0 28px}
 .blog-game-heading h2{font-size:clamp(27px,3.1vw,38px);line-height:1.18;letter-spacing:-1.15px;color:#142657;margin:10px 0 15px}
