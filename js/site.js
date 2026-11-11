@@ -4,6 +4,11 @@
   const content = window.QUALIFY_CONTENT;
   const webinars = Array.isArray(window.QUALIFY_WEBINARS) ? window.QUALIFY_WEBINARS.filter(w => w && w.title) : [];
   const page = document.body.dataset.page || "home";
+  // Qualify.io â€“ Customer Service Rush Access: published HubSpot form.
+  // Portal 43713505, region na1 (provided form embed code).
+  const HUBSPOT_GAME_FORM_ID = "b194643d-58b4-48e0-971e-c32ed9a01758";
+  const gameAccessLandingUrl = "https://aivise.hs-sites.com/customer-service-rush-demo";
+  const gamePreviewUrl = "https://43713505.fs1.hubspotusercontent-na1.net/hubfs/43713505/qualifyio/QualifyIO_Customer_Service_Rush_Preview.png";
   const iconPaths = {
     megaphone: '<path d="M3 10h4l10-5v14L7 14H3v-4Zm4 4 2 6"/>',
     arrow: '<path d="M5 12h14m-6-6 6 6-6 6"/>',
@@ -60,7 +65,7 @@
       <div><h4>Explore</h4><a href="solutions.html">Solutions</a><a href="how-it-works.html">How it works</a><a href="about.html">About us</a></div>
       <div><h4>Resources</h4><a href="resources.html">Blog & insights</a><a href="webinars.html">Webinars</a><a href="${resourceUrl}">Recruitment checklist</a></div>
       <div><h4>Connect</h4>${email}${linkedin}<a href="${demoUrl}">${svg('calendar')} Book a product demo</a></div>
-    </div><div class="container footer-bottom"><span>© ${new Date().getFullYear()} Qualify.io · University CRM project simulation</span><span>Designed for smarter hiring.</span></div></footer>`;
+    </div><div class="container footer-bottom"><span>Â© ${new Date().getFullYear()} Qualify.io Â· University CRM project simulation</span><span>Designed for smarter hiring.</span></div></footer>`;
   }
   function solutionCard(s, i) {
     return `<article class="solution-card"><div class="solution-icon tone-${i}">${svg(s.icon)}</div><h3>${s.title}</h3><p>${s.description}</p><a class="text-link" href="solutions.html">Explore solution ${svg('arrow')}</a></article>`;
@@ -69,7 +74,7 @@
     return `<a href="${b.url || `resources.html#${b.id}`}" class="blog-card"><div class="blog-art ${b.image}" aria-hidden="true"><span></span><i></i></div><div class="blog-info"><span class="eyebrow mini">${b.category}</span><h3>${b.title}</h3><span class="read-more">Explore article ${svg('arrow')}</span></div></a>`;
   }
   function webinarCard(w, i) {
-    const dateLine = [w.date, w.time].filter(Boolean).map(htmlText).join(" · ");
+    const dateLine = [w.date, w.time].filter(Boolean).map(htmlText).join(" Â· ");
     const details = w.description ? `<p class="webinar-description">${htmlText(w.description)}</p>` : "";
     const link = safeLink(w.registrationUrl);
     const registration = link ? `<a class="webinar-link" href="${link}" target="_blank" rel="noopener noreferrer">Registration details ${svg('arrow')}</a>` : "";
@@ -94,7 +99,7 @@
   function home() {
     return `<main id="main-content">
       <section class="hero"><div class="hero-deco hero-deco-left"></div><div class="container hero-grid">
-        <div class="hero-copy"><span class="eyebrow">THE NEXT CHAPTER OF RECRUITMENT</span><h1>Smarter recruitment starts <span class="underlined">beyond the CV.</span></h1><p>Discover qualified candidates through meaningful skills-based assessments, thoughtful AI tools and streamlined recruitment—without losing the human touch.</p>
+        <div class="hero-copy"><span class="eyebrow">THE NEXT CHAPTER OF RECRUITMENT</span><h1>Smarter recruitment starts <span class="underlined">beyond the CV.</span></h1><p>Discover qualified candidates through meaningful skills-based assessments, thoughtful AI tools and streamlined recruitmentâ€”without losing the human touch.</p>
           <div class="hero-actions"><a class="btn btn-primary" href="${demoUrl}">Book a product demo ${svg('arrow')}</a><a class="btn btn-outline" href="resources.html">Explore resources ${svg('arrow')}</a></div>
           <p class="hero-proof">Built for modern HR teams. Designed around real hiring challenges.</p>
         </div>${dashboard()}
@@ -108,6 +113,18 @@
       <div class="step"><span class="step-icon">${svg('users')}</span><b>04</b><h3>Connect</h3><p>Spend more time with the candidates who may fit.</p></div>
       </div></div></section>
       <section class="container resource-feature" id="checklist"><div class="resource-paper"><span class="paper-logo">qualify<span>.</span>io</span><strong>Recruitment<br>Efficiency<br>Checklist</strong><div class="paper-mark">${svg('check')}</div></div><div class="resource-copy"><span class="eyebrow">FREE RESOURCE</span><h2>Is your recruitment process ready for the AI era?</h2><p>12 practical questions to uncover gaps in screening, candidate assessment and hiring experience.</p><a class="btn btn-primary" href="${resourceUrl}" ${!config.hubspotChecklistUrl?'download':''}>Get the free checklist ${svg('download')}</a></div><div class="feature-swoosh"></div></section>
+      <section class="container resource-feature resource-feature-game" id="game-demo" aria-label="Customer Service Rush interactive game demo">
+        <div class="resource-copy"><span class="eyebrow">FREE INTERACTIVE DEMO</span><h2>Step into your candidates' shoes.</h2>
+          <p>Experience Customer Service Rush: a short, gamified challenge that puts communication, problem-solving and decision-making into action.</p>
+          <a class="btn btn-primary" href="${gameAccessLandingUrl}">Unlock the game ${svg('play')}</a>
+          <p class="resource-note">Complete a short form to access the 2D game. University CRM project simulation.</p>
+        </div>
+        <a class="resource-game-art" href="${gameAccessLandingUrl}" aria-label="Unlock Customer Service Rush game demo">
+          <img src="${gamePreviewUrl}" alt="Customer Service Rush, a playable 2D customer-service skills scenario" loading="lazy"/>
+          <span class="resource-game-art-caption">CUSTOMER SERVICE RUSH <span>2D Skills Demo</span></span>
+        </a>
+        <div class="feature-swoosh"></div>
+      </section>
       <section class="section container" id="webinars"><div class="section-head"><div><span class="eyebrow">WEBINARS & EVENTS</span><h2>Webinars</h2>${webinars.length ? '' : '<p>Webinar topics and dates will be added when confirmed.</p>'}</div><a class="text-link desktop-more" href="webinars.html">Webinar page ${svg('arrow')}</a></div>${webinars.length ? `<div class="webinar-grid">${webinars.map(webinarCard).join('')}</div>` : ''}</section>
       <section class="section container" id="insights"><div class="section-head"><div><span class="eyebrow">BLOG & INSIGHTS</span><h2>Ideas beyond the application.</h2><p>Explore the challenges and opportunities shaping recruitment.</p></div><a class="text-link desktop-more" href="resources.html">All articles ${svg('arrow')}</a></div><div class="blog-grid">${content.blogs.map(blogCard).join('')}</div></section>
       <section class="container bottom-cta"><div><span class="eyebrow">LET'S TALK TALENT</span><h2>See Qualify.io in action.</h2><p>Explore how a modular recruitment toolbox could support your hiring process.</p></div><a class="btn btn-primary" href="${demoUrl}">Book a product demo ${svg('arrow')}</a></section>
@@ -117,49 +134,96 @@
   // lightweight but real routes, ready for content/design approval in later iterations.
   const pages = {
     "solutions": { eyebrow:"OUR SOLUTIONS", title:"The right tools for every hiring challenge.", text:"Explore the three complementary modules of Qualify.io.", extra:()=>`<div class="solutions-grid">${content.solutions.map(solutionCard).join('')}</div>` },
-    "how-it-works": { eyebrow:"HOW IT WORKS", title:"A clearer recruitment journey.", text:"Discover how skills-based assessments, supportive AI and thoughtful automation can work together.", extra:()=>`<div class="page-feature"><h2>Attract → Assess → Qualify → Connect</h2><p>We’ll build out this page with your feedback in the next design stage.</p></div>` },
-    "resources": { eyebrow:"RESOURCES", title:"Insights for the future of hiring.", text:"Explore practical ideas, perspectives and resources for a smarter hiring process.", extra:()=>`<div class="resources-list">${content.blogs.map(b=>`<article class="resource-list-item" id="${b.id}"><span class="eyebrow">${b.category}</span><h2>${b.title}</h2><p>${b.summary}</p>${b.url ? `<a class="text-link" href="${b.url}">Read article ${svg('arrow')}</a>` : `<span class="soft-caption">Full article coming soon.</span>`}</article>`).join('')}</div><div class="page-feature"><h2>Free recruitment efficiency checklist</h2><p>A 12-question self-assessment for HR decision-makers.</p><a class="btn btn-primary" href="${resourceUrl}">Get the checklist ${svg('download')}</a></div>` },
+    "how-it-works": { eyebrow:"HOW IT WORKS", title:"A clearer recruitment journey.", text:"Discover how skills-based assessments, supportive AI and thoughtful automation can work together.", extra:()=>`<div class="page-feature"><h2>Attract â†’ Assess â†’ Qualify â†’ Connect</h2><p>Weâ€™ll build out this page with your feedback in the next design stage.</p></div>` },
+    "resources": { eyebrow:"RESOURCES", title:"Insights for the future of hiring.", text:"Explore practical ideas, perspectives and resources for a smarter hiring process.", extra:()=>`<div class="resources-list">${content.blogs.map(b=>`<article class="resource-list-item" id="${b.id}"><span class="eyebrow">${b.category}</span><h2>${b.title}</h2><p>${b.summary}</p>${b.url ? `<a class="text-link" href="${b.url}">Read article ${svg('arrow')}</a>` : `<span class="soft-caption">Full article coming soon.</span>`}</article>`).join('')}</div><div class="page-feature"><h2>Free recruitment efficiency checklist</h2><p>A 12-question self-assessment for HR decision-makers.</p><a class="btn btn-primary" href="${resourceUrl}">Get the checklist ${svg('download')}</a></div>
+      <div class="page-feature page-feature-game"><div class="page-game-copy"><span class="eyebrow">FREE INTERACTIVE DEMO</span><h2>Customer Service Rush: try the candidate experience</h2><p>Discover how a short, gamified workplace scenario can make communication, problem-solving and decision-making more visible.</p><a class="btn btn-primary" href="${gameAccessLandingUrl}">Unlock the game ${svg('play')}</a><p class="resource-note">Register using the short HubSpot form to try the 2D demo.</p></div><img src="${gamePreviewUrl}" alt="Customer Service Rush interactive customer-service game preview" loading="lazy"/></div>` },
     "webinars": { eyebrow:"WEBINARS & EVENTS", title:"Webinars", text:webinars.length ? "" : "Webinar topics and dates will be added when confirmed.", extra:()=>webinars.length ? `<div class="webinar-grid">${webinars.map(webinarCard).join('')}</div>` : `` },
     "about": { eyebrow:"ABOUT QUALIFY.IO", title:"Technology should help us see people better.", text:"Qualify.io is a simulated modular HR technology platform created for a university CRM project. Our concept combines skills-based assessment, AI assistance and process automation to support more meaningful recruitment.", extra:()=>`<div class="page-feature"><h2>Our point of view</h2><p>Less time on repetitive screening. More time understanding the people behind every application.</p></div>` },
     "contact": { eyebrow:"CONTACT", title:"Let's talk about better hiring.", text:"This is a university project simulation. Our contact form and company email will be connected once they are available.", extra:()=>`<div class="page-feature"><h2>Get in touch</h2><p>We will embed your HubSpot contact form here. The address and LinkedIn page can be connected in one place through js/config.js.</p><a href="${demoUrl}" class="btn btn-primary">Request a product demo ${svg('arrow')}</a></div>` },
     "book-demo": { eyebrow:"PRODUCT DEMONSTRATION", title:"Discover what Qualify.io could do for your team.", text:"See how our modules can be tailored to your recruitment challenges.", extra:()=>config.demoBookingUrl ? `<div class="page-feature"><h2>Book your personalized demo</h2><p>Choose a suitable time in our booking system.</p><a class="btn btn-primary" href="${config.demoBookingUrl}" target="_blank" rel="noopener noreferrer">Open HubSpot booking ${svg('calendar')}</a></div>` : `<div class="page-feature"><h2>Demo booking is being connected</h2><p>Once you add your HubSpot Meetings URL to <code>js/config.js</code>, the booking buttons will lead to your real reservation page.</p><p class="soft-caption">No booking can be submitted in this preview.</p></div>` }
   };
+  // Integrated post-article game section for our consideration-stage blog post.
+  // The form is embedded directly beneath blog post #2; after submission the existing
+  // HubSpot Thank-you Page routes the user back to the unlocked embedded game.
+  function customerServiceRushSection() {
+    const params = new URLSearchParams(window.location.search);
+    const unlocked = params.get("game") === "1";
+    return `<section id="customer-service-rush" class="blog-game-section" aria-label="Customer Service Rush interactive skills assessment demo">
+      <div class="blog-game-heading">
+        <span class="eyebrow">INTERACTIVE SKILLS DEMO</span>
+        <h2>Step Into Your Candidates' Shoes!</h2>
+        <p>Ever wondered what a gamified recruitment assessment looks like from an applicant's perspective? Experience our Customer Service Rush mini-game and see how interactive, job-related challenges can reveal skills beyond the CV.</p>
+        <div class="blog-game-skills"><span>Communication</span><span>Problem-solving</span><span>Decision-making</span></div>
+      </div>
+      ${unlocked ? `<div class="blog-game-play-area">
+        <div class="blog-game-bar"><strong>Customer Service Rush</strong><span>Interactive 2D skills demo</span></div>
+        <iframe src="customer-service-rush.html" title="Play Customer Service Rush, an interactive customer-service scenario" loading="eager" allow="fullscreen"></iframe>
+        <div class="blog-game-play-bottom"><p>This is a university CRM project simulation, not a validated hiring assessment. The game does not collect personal data.</p><a class="text-link" href="customer-service-rush.html" target="_blank" rel="noopener noreferrer">Open the game in a new tab ${svg('arrow')}</a></div>
+      </div>` : `<div class="blog-game-grid">
+        <div class="blog-game-preview"><img src="${gamePreviewUrl}" alt="Customer Service Rush 2D game: three customers at a service counter" loading="lazy"/><div class="blog-game-preview-caption"><strong>Customer Service Rush</strong><span>Three requests. One shift. Your decisions.</span></div></div>
+        <div class="blog-game-form-panel"><span class="eyebrow">FREE INTERACTIVE EXPERIENCE</span><h3>Unlock the Game</h3><p>Try the candidate experience yourself. Complete the short form to access the Customer Service Rush demo.</p>
+          <div id="qualify-game-form" aria-label="Qualify.io Customer Service Rush Access registration form"></div>
+          <p class="blog-game-fineprint">University project simulation. Please use fictional test details only.</p>
+        </div>
+      </div>`}
+    </section>`;
+  }
   // Article layout is shared: adding a new entry in js/articles.js is enough
   // to create another full article at blog.html?id=YOUR_ARTICLE_ID.
   function blogPage() {
     const id = new URLSearchParams(window.location.search).get('id');
     const article = window.QUALIFY_ARTICLES?.[id];
-    if (!article) return `<main id="main-content" class="inner-page"><section class="inner-hero container"><span class="eyebrow">BLOG & INSIGHTS</span><h1>Article not available yet.</h1><p>Explore the published Qualify.io articles and resources.</p><a class="text-link" href="resources.html">← Back to resources</a></section></main>`;
+    if (!article) return `<main id="main-content" class="inner-page"><section class="inner-hero container"><span class="eyebrow">BLOG & INSIGHTS</span><h1>Article not available yet.</h1><p>Explore the published Qualify.io articles and resources.</p><a class="text-link" href="resources.html">â† Back to resources</a></section></main>`;
     document.title = `${article.title} | Qualify.io`;
     const sections = article.sections.map(s => `<section class="article-section"><h2>${s.heading}</h2>${s.paragraphs.map((p,i)=>`<p>${p}</p>`).join('')}</section>`).join('');
     return `<main id="main-content" class="article-page">
       <div class="container article-shell">
-        <a class="article-back" href="resources.html">← All articles</a>
+        <a class="article-back" href="resources.html">â† All articles</a>
         <header class="article-header">
           <span class="eyebrow">${article.category}</span>
           <h1>${article.title}</h1>
           <p class="article-deck">${article.deck}</p>
-          <div class="article-meta"><span>QUALIFY.IO INSIGHTS</span><span aria-hidden="true">·</span><span>Recruitment & human-centered hiring</span></div>
+          <div class="article-meta"><span>QUALIFY.IO INSIGHTS</span><span aria-hidden="true">Â·</span><span>Recruitment & human-centered hiring</span></div>
         </header>
         <div class="article-hero-art" aria-hidden="true"><span class="art-ring art-ring-one"></span><span class="art-ring art-ring-two"></span><span class="art-accent"></span></div>
         <article class="article-body">${sections}</article>
         ${id === 'more-applications-less-personality' ? `<aside class="article-checklist-cta" aria-label="Download our free recruitment checklist">
           <div class="article-cta-deco" aria-hidden="true">${svg('check')}</div>
-          <div class="article-cta-copy"><span class="eyebrow">FREE RESOURCE · 12 QUESTIONS</span><h2>Is your recruitment process ready for the AI era?</h2><p>Identify gaps in screening, candidate assessment and the applicant experience with our free Recruitment Efficiency Checklist.</p><a class="btn btn-primary" href="${resourceUrl}">Download your free checklist ${svg('arrow')}</a><p class="cta-fineprint">Complete the short form to access the PDF.</p></div>
+          <div class="article-cta-copy"><span class="eyebrow">FREE RESOURCE Â· 12 QUESTIONS</span><h2>Is your recruitment process ready for the AI era?</h2><p>Identify gaps in screening, candidate assessment and the applicant experience with our free Recruitment Efficiency Checklist.</p><a class="btn btn-primary" href="${resourceUrl}">Download your free checklist ${svg('arrow')}</a><p class="cta-fineprint">Complete the short form to access the PDF.</p></div>
         </aside>` : ''}
+        ${id === 'beyond-the-cv' ? customerServiceRushSection() : ''}
         ${id === 'discover-qualifyio' ? `<aside class="article-checklist-cta" aria-label="Explore a personalized Qualify.io demo">
           <div class="article-cta-deco" aria-hidden="true">${svg('calendar')}</div>
           <div class="article-cta-copy"><span class="eyebrow">DISCOVER QUALIFY.IO</span><h2>Discover what Qualify.io can do for your company</h2><p>Every recruitment challenge is different. See how our modular toolbox can support your hiring needs.</p><a class="btn btn-primary" href="${demoUrl}">Book your free personalized demo ${svg('arrow')}</a>${!config.demoBookingUrl ? '<p class="cta-fineprint">Demo booking will be available when the HubSpot Meetings link is connected.</p>' : ''}</div>
         </aside>` : ''}
-        <div class="article-bottom-nav"><a class="text-link" href="resources.html">← Back to all articles</a></div>
+        <div class="article-bottom-nav"><a class="text-link" href="resources.html">â† Back to all articles</a></div>
       </div>
     </main>`;
   }
   function genericPage(key) {
     const p=pages[key]; if(!p) return home();
-    return `<main id="main-content" class="inner-page"><section class="inner-hero container"><span class="eyebrow">${p.eyebrow}</span><h1>${p.title}</h1><p>${p.text}</p></section><section class="container inner-content">${p.extra()}</section><section class="container back-home"><a class="text-link" href="index.html">← Back to homepage</a></section></main>`;
+    return `<main id="main-content" class="inner-page"><section class="inner-hero container"><span class="eyebrow">${p.eyebrow}</span><h1>${p.title}</h1><p>${p.text}</p></section><section class="container inner-content">${p.extra()}</section><section class="container back-home"><a class="text-link" href="index.html">â† Back to homepage</a></section></main>`;
   }
   document.getElementById('site').innerHTML = header() + (page==='home'?home():page==='blog'?blogPage():genericPage(page)) + footer();
+  // Only embed the published HubSpot form on blog post #2. This handles HubSpot's
+  // current form editor embed script, which uses a .hs-form-frame data-form-id element.
+  const gameFormHost = document.getElementById("qualify-game-form");
+  if (gameFormHost) {
+    const registrationFallback = `<a class="btn btn-primary" href="${gameAccessLandingUrl}">Unlock the Game ${svg('arrow')}</a><p class="blog-game-fineprint">Registration opens in the Qualify.io HubSpot form.</p>`;
+    if (/^[a-f\d]{8}-[a-f\d]{4}-[a-f\d]{4}-[a-f\d]{4}-[a-f\d]{12}$/i.test(HUBSPOT_GAME_FORM_ID)) {
+      gameFormHost.classList.add("hs-form-frame");
+      gameFormHost.dataset.portalId = "43713505";
+      gameFormHost.dataset.region = "na1";
+      gameFormHost.dataset.formId = HUBSPOT_GAME_FORM_ID;
+      const script = document.createElement("script");
+      script.src = "https://js.hsforms.net/forms/embed/43713505.js";
+      script.async = true;
+      script.onerror = () => { gameFormHost.innerHTML = registrationFallback; };
+      document.head.appendChild(script);
+    } else {
+      gameFormHost.innerHTML = registrationFallback;
+    }
+  }
   const toggle=document.getElementById('menu-toggle');
   const menu=document.getElementById('mobile-menu');
   toggle?.addEventListener('click',()=>{const isOpen=toggle.getAttribute('aria-expanded')==='true';toggle.setAttribute('aria-expanded',String(!isOpen));toggle.setAttribute('aria-label',isOpen?'Open navigation':'Close navigation');toggle.innerHTML=svg(isOpen?'menu':'x');menu.hidden=isOpen;});
