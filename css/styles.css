@@ -1,4 +1,4 @@
-/* QUALIFY.IO — brand system. Change these variables to reskin the whole website. */
+/* QUALIFY.IO â€” brand system. Change these variables to reskin the whole website. */
 :root {
   --navy: #142851;
   --navy-2: #1d3262;
@@ -81,7 +81,7 @@ h1,h2,h3,h4,p{margin-top:0;}
 .solution-icon{width:54px;height:54px;border-radius:14px;display:grid;place-items:center;background:#edf1ff;color:#5b7fdd;margin-bottom:21px;}.solution-icon.tone-1{background:#fff1e6;color:#f58b2a}.solution-icon .icon{width:27px;height:27px;}
 .solution-card h3{font-size:17px;color:var(--navy);margin:0 0 11px;letter-spacing:-.35px;}.solution-card p {font-size:13px;color:var(--muted);line-height:1.75;min-height:93px;margin-bottom:15px;}
 .how-section{margin-top:72px;background:linear-gradient(180deg,#f5f7fd,#fcfbfb);padding:75px 0 82px;}.steps-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;}
-.step {background:white;border-radius:15px;padding:23px 20px;border:1px solid var(--line);position:relative;min-height:205px;}.step:not(:last-child)::after {content:'→';color:#7d94cc;font-size:26px;position:absolute;right:-22px;top:45%;z-index:2;}.step-icon{width:44px;height:44px;border-radius:11px;display:grid;place-items:center;background:#eff2ff;color:#5a7dd2;margin-bottom:17px;}.step:nth-child(2) .step-icon,.step:nth-child(4) .step-icon{background:#fff0e4;color:var(--orange)}.step>b{color:#9cabd3;font-size:11px;letter-spacing:1px;}.step h3{font-size:17px;color:var(--navy);margin:4px 0 7px;}.step p{font-size:12px;color:var(--muted);margin:0;line-height:1.6;}
+.step {background:white;border-radius:15px;padding:23px 20px;border:1px solid var(--line);position:relative;min-height:205px;}.step:not(:last-child)::after {content:'â†’';color:#7d94cc;font-size:26px;position:absolute;right:-22px;top:45%;z-index:2;}.step-icon{width:44px;height:44px;border-radius:11px;display:grid;place-items:center;background:#eff2ff;color:#5a7dd2;margin-bottom:17px;}.step:nth-child(2) .step-icon,.step:nth-child(4) .step-icon{background:#fff0e4;color:var(--orange)}.step>b{color:#9cabd3;font-size:11px;letter-spacing:1px;}.step h3{font-size:17px;color:var(--navy);margin:4px 0 7px;}.step p{font-size:12px;color:var(--muted);margin:0;line-height:1.6;}
 .resource-feature{display:grid;grid-template-columns:250px 1fr;align-items:center;gap:50px;position:relative;overflow:hidden;border-radius:22px;margin-top:78px;min-height:285px;padding:35px 65px;background:linear-gradient(110deg,#f1f3fd 0%,#fff 59%,#eff2ff 100%);border:1px solid var(--line);}
 .resource-paper{width:195px;height:235px;background:white;border-radius:9px;transform:rotate(-10deg);box-shadow:0 18px 22px rgba(46,65,123,.15);padding:20px 19px;position:relative;z-index:2;border:1px solid #e9ebf5;display:flex;flex-direction:column;}
 .paper-logo{font-size:15px;font-weight:820;color:var(--navy);letter-spacing:-1px;margin-bottom:30px;}.paper-logo span{color:var(--orange)}.resource-paper strong{font-size:20px;line-height:1.18;color:var(--navy);letter-spacing:-.8px;}.paper-mark{display:grid;place-items:center;color:var(--orange);border:2px solid var(--blue);border-radius:12px;width:47px;height:47px;margin-top:auto}.paper-mark .icon{width:29px;height:29px;}
@@ -98,7 +98,7 @@ h1,h2,h3,h4,p{margin-top:0;}
 @media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important;transition:none!important}}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.sr-only:focus{position:fixed;top:8px;left:8px;width:auto;height:auto;padding:10px 12px;margin:0;background:white;clip:auto;z-index:999}
 
-/* Editorial blog article layout — all future articles share these styles. */
+/* Editorial blog article layout â€” all future articles share these styles. */
 .article-page{background:var(--paper)}
 .article-shell{max-width:970px;padding-top:52px;padding-bottom:88px}
 .article-back,.article-bottom-nav a{font-size:13px;font-weight:700;color:#5876c6}
@@ -131,3 +131,53 @@ h1,h2,h3,h4,p{margin-top:0;}
 /* Team-approved webinar listings: rendered from js/webinars.js. */
 .webinar-description{font-size:13px;line-height:1.6;color:var(--muted);position:relative;z-index:2;margin:0 0 18px;max-width:270px;}
 .webinar-card .webinar-link{white-space:normal;}
+
+/* Customer Service Rush â€” gated, inline 2D game under blog article #2 */
+.blog-game-section{margin:62px auto 0;padding:35px;border-radius:25px;background:linear-gradient(125deg,#f0f4ff 0%,#fcfbf9 55%,#fff2e7 100%);border:1px solid #e1e7f3;box-shadow:0 12px 30px rgba(28,45,96,.045);scroll-margin-top:30px}
+.blog-game-heading{max-width:780px;margin:0 0 28px}
+.blog-game-heading h2{font-size:clamp(27px,3.1vw,38px);line-height:1.18;letter-spacing:-1.15px;color:#142657;margin:10px 0 15px}
+.blog-game-heading p{font-size:15px;line-height:1.75;color:#5c6c86;margin:0 0 19px}
+.blog-game-skills{display:flex;gap:9px;flex-wrap:wrap}
+.blog-game-skills span{padding:8px 13px;background:#fff;border:1px solid #dce4f3;border-radius:100px;font-size:11px;font-weight:760;color:#5270ab}
+.blog-game-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.9fr);gap:22px;align-items:start}
+.blog-game-preview,.blog-game-form-panel{overflow:hidden;border:1px solid #dee6f3;border-radius:18px;background:white;box-shadow:0 8px 23px rgba(35,55,105,.055)}
+.blog-game-preview{padding:12px}
+.blog-game-preview img{display:block;width:100%;border-radius:12px;border:1px solid #e8edf6}
+.blog-game-preview-caption{display:flex;justify-content:space-between;gap:10px;align-items:center;flex-wrap:wrap;padding:13px 5px 5px}
+.blog-game-preview-caption strong{font-size:13px;color:#142657}
+.blog-game-preview-caption span{font-size:11px;color:#7381a0}
+.blog-game-form-panel{padding:28px}
+.blog-game-form-panel h3{font-size:28px;line-height:1.15;letter-spacing:-.7px;margin:11px 0;color:#142657}
+.blog-game-form-panel>p{font-size:13px;color:#65728c;line-height:1.7;margin:0 0 18px}
+.blog-game-form-panel #qualify-game-form{min-height:70px}
+.blog-game-form-panel .btn{font-size:13px;white-space:normal}
+.blog-game-form-panel .blog-game-fineprint{font-size:10px;margin:12px 0 0;color:#8591a8}
+.blog-game-play-area{background:white;border:1px solid #dfe5f1;border-radius:18px;padding:12px;box-shadow:0 8px 23px rgba(35,55,105,.055)}
+.blog-game-bar{padding:13px 13px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.blog-game-bar strong{font-size:17px;color:#142657}
+.blog-game-bar span{font-size:12px;color:#7381a0}
+.blog-game-play-area iframe{display:block;width:100%;height:920px;border:1px solid #e1e7f4;border-radius:12px;background:#fff}
+.blog-game-play-bottom{padding:16px 12px 9px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px}
+.blog-game-play-bottom p{max-width:510px;font-size:11px;line-height:1.55;color:#8491aa;margin:0}
+.blog-game-play-bottom a{font-size:12px}
+@media(max-width:850px){.blog-game-section{padding:23px}.blog-game-grid{grid-template-columns:1fr}.blog-game-play-area iframe{height:1070px}}
+@media(max-width:550px){.blog-game-section{margin-top:44px;padding:18px;border-radius:17px}.blog-game-form-panel{padding:22px}.blog-game-preview-caption{align-items:start}.blog-game-play-area{padding:7px}.blog-game-play-area iframe{height:1200px}.blog-game-play-bottom{padding:12px 7px}}
+
+
+/* Customer Service Rush appears beside the checklist in the home/resources offer area. */
+.resource-feature-game{margin-top:21px;grid-template-columns:minmax(0,1.03fr) minmax(0,.97fr);min-height:310px;gap:43px;padding:34px 55px;background:linear-gradient(110deg,#fff6ed 0%,#fff 49%,#eef3ff 100%)}
+.resource-feature-game .resource-copy{max-width:530px}
+.resource-feature-game .resource-copy h2{font-size:clamp(26px,3vw,35px);line-height:1.15;letter-spacing:-1px;margin:11px 0 15px}
+.resource-feature-game .resource-copy p{margin-bottom:19px}
+.resource-feature-game .resource-copy .resource-note,.page-feature-game .resource-note{font-size:11px;line-height:1.55;color:#8791a8;margin:12px 0 0}
+.resource-feature-game .feature-swoosh{right:auto;left:-165px;bottom:-205px;pointer-events:none;border-color:#ffd8b4}
+.resource-game-art{display:block;position:relative;z-index:2;padding:9px 9px 0;border-radius:17px;border:1px solid #dce3f4;background:#fff;box-shadow:0 14px 27px rgba(39,57,109,.12);transform:rotate(1.5deg);overflow:hidden;transition:transform .18s,box-shadow .18s;min-width:0}
+.resource-game-art:hover{transform:rotate(0deg) translateY(-3px);box-shadow:0 17px 35px rgba(39,57,109,.16)}
+.resource-game-art img{display:block;width:100%;height:auto;aspect-ratio:1.9;object-fit:cover;object-position:center center;border-radius:11px;border:1px solid #e4eaf7}
+.resource-game-art-caption{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 6px;font-size:10px;font-weight:850;letter-spacing:.7px;color:#142657}
+.resource-game-art-caption span{color:#7385ac;letter-spacing:0;font-weight:650;white-space:nowrap}
+.page-feature-game{display:grid;grid-template-columns:minmax(0,1fr) minmax(200px,.65fr);gap:26px;align-items:center;background:linear-gradient(115deg,#fff5e9,#fff 50%,#eef2ff)}
+.page-feature-game h2{line-height:1.25;margin-top:9px}
+.page-feature-game img{width:100%;max-height:230px;object-fit:cover;border-radius:14px;border:8px solid #fff;box-shadow:0 8px 20px rgba(29,48,94,.09)}
+@media(max-width:870px){.resource-feature-game{padding:35px;gap:25px;grid-template-columns:minmax(0,1fr) minmax(0,.9fr)}.resource-feature-game .resource-copy h2{font-size:29px}}
+@media(max-width:610px){.resource-feature-game{grid-template-columns:1fr;padding:32px 24px 33px;margin-top:15px;gap:20px}.resource-game-art{grid-row:1;transform:none}.resource-game-art:hover{transform:translateY(-2px)}.resource-feature-game .resource-copy h2{font-size:28px}.resource-game-art-caption{font-size:9px}.page-feature-game{grid-template-columns:1fr}.page-feature-game img{grid-row:1;max-height:200px}}
