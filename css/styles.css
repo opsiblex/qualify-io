@@ -181,3 +181,44 @@ h1,h2,h3,h4,p{margin-top:0;}
 .page-feature-game img{width:100%;max-height:230px;object-fit:cover;border-radius:14px;border:8px solid #fff;box-shadow:0 8px 20px rgba(29,48,94,.09)}
 @media(max-width:870px){.resource-feature-game{padding:35px;gap:25px;grid-template-columns:minmax(0,1fr) minmax(0,.9fr)}.resource-feature-game .resource-copy h2{font-size:29px}}
 @media(max-width:610px){.resource-feature-game{grid-template-columns:1fr;padding:32px 24px 33px;margin-top:15px;gap:20px}.resource-game-art{grid-row:1;transform:none}.resource-game-art:hover{transform:translateY(-2px)}.resource-feature-game .resource-copy h2{font-size:28px}.resource-game-art-caption{font-size:9px}.page-feature-game{grid-template-columns:1fr}.page-feature-game img{grid-row:1;max-height:200px}}
+
+/* Nov 15 navigation addition: a compact, gated mini-game link alongside Contact. */
+.desktop-nav a.nav-mini-game {
+  display:inline-flex;align-items:center;gap:6px;padding:8px 11px;
+  border:1px solid #c7d5f5;border-radius:999px;background:#eff3ff;
+  color:#315bb6;font-size:11px;font-weight:800;letter-spacing:0;
+  transition:background .18s,border-color .18s;
+}
+.desktop-nav a.nav-mini-game:hover {background:#e4ebfe;border-color:#9ab0e5;color:#173e93;}
+.desktop-nav .nav-mini-game .icon {width:14px;height:14px;}
+.mobile-nav .mobile-free-game {display:flex;align-items:center;gap:9px;background:#ecf1ff;color:#315bb6;border-radius:10px;margin-top:8px;}
+.mobile-free-game .icon {width:17px;height:17px;}
+
+/* Meeting booking section: readable placeholder until the real HubSpot meeting is supplied. */
+.meeting-booking-feature {max-width:1050px;margin:0 auto;text-align:center;padding:38px 38px 30px;}
+.meeting-feature-intro {max-width:640px;margin:0 auto 22px;}
+.meeting-feature-intro h2 {font-size:clamp(26px,3vw,38px);line-height:1.2;color:var(--navy);margin:9px 0 14px;letter-spacing:-1px;}
+.meeting-feature-intro p {font-size:15px;line-height:1.7;color:var(--muted);}
+.meeting-placeholder {background:linear-gradient(135deg,#f2f5ff,#fffaf5);border:1px solid #dfe6f4;border-radius:19px;padding:52px 20px;margin:0 auto;max-width:760px;}
+.meeting-placeholder-icon {display:grid;place-items:center;width:57px;height:57px;border-radius:15px;background:white;color:#7088ce;border:1px solid #dfe6f4;margin:0 auto 18px;}
+.meeting-placeholder-icon .icon {width:29px;height:29px;}
+.meeting-placeholder h3 {font-size:22px;color:var(--navy);margin:0 0 11px;}
+.meeting-placeholder p {max-width:460px;margin:0 auto 15px;font-size:14px;color:var(--muted);}
+.meeting-not-live {display:inline-flex;background:#fff;border:1px solid #dfe6f4;color:#697a97;border-radius:999px;padding:7px 13px;font-size:11px;font-weight:700;}
+.meeting-simulation-note {color:#8994a9;font-size:11px;margin:18px 0 0;}
+.meetings-iframe-container {min-height:650px;max-width:800px;margin:auto;overflow:hidden;border-radius:14px;background:#fff;}
+.meeting-helper-text {margin-top:15px;font-size:12px;color:#65728c;}
+.meeting-helper-text a {color:#315bb6;font-weight:700;}
+.meeting-helper-text .icon {width:13px;height:13px;}
+
+/* The menu switches to the mobile navigation before the extra promo item can crowd it. */
+@media(max-width:1180px) {
+  .desktop-nav,.nav-cta{display:none;}
+  .mobile-menu-toggle{display:grid;place-items:center;margin-left:auto;width:44px;height:44px;border:1px solid var(--line);background:#fff;border-radius:10px;color:var(--navy);}
+  .mobile-menu-toggle .icon{width:23px;height:23px;}
+  .mobile-nav:not([hidden]){display:flex;flex-direction:column;gap:3px;padding:12px 22px 18px;border-top:1px solid var(--line);background:var(--paper);}
+  .mobile-nav a{padding:12px;font-size:14px;color:var(--navy);font-weight:670;}
+  .mobile-nav a.mobile-free-game{color:#315bb6;}
+  .mobile-nav a.mobile-demo{background:var(--orange);color:white;border-radius:10px;text-align:center;margin-top:8px;}
+}
+@media(max-width:610px){.meeting-booking-feature{padding:25px 16px;}.meeting-placeholder{padding:35px 15px;}.meetings-iframe-container{min-height:650px;}}
