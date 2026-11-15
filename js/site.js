@@ -41,7 +41,7 @@
     } catch { return ""; }
   };
   const svg = (name, cls="") => `<svg class="icon ${cls}" aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">${iconPaths[name]||iconPaths.arrow}</svg>`;
-  const demoUrl = config.demoBookingUrl || 'book-demo.html';
+  const demoUrl = 'book-demo.html'; // Booking stays on our website; HubSpot calendar loads on this page when configured.
   const resourceUrl = config.hubspotChecklistUrl || config.checklistFile;
   const nav = [
     ["Solutions", "solutions.html"], ["How It Works", "how-it-works.html"], ["Resources", "resources.html"],
@@ -51,10 +51,10 @@
   function header() {
     return `<header class="site-header"><div class="container header-inner">
       <a href="index.html" class="logo-link" aria-label="Qualify.io homepage"><img src="assets/qualify-logo.png" alt="Qualify.io" /></a>
-      <nav class="desktop-nav" aria-label="Main navigation">${nav.map(navItem).join('')}</nav>
+      <nav class="desktop-nav" aria-label="Main navigation">${nav.map(navItem).join('')}<a class="nav-mini-game" href="${gameAccessLandingUrl}">${svg('play')} Try Our Free Mini-Game!</a></nav>
       <a class="btn btn-primary nav-cta" href="${demoUrl}">Book a product demo ${svg('arrow')}</a>
       <button class="mobile-menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-menu">${svg('menu')}</button>
-    </div><nav id="mobile-menu" class="mobile-nav" aria-label="Mobile navigation" hidden>${nav.map(navItem).join('')}<a class="mobile-demo" href="${demoUrl}">Book a product demo</a></nav></header>`;
+    </div><nav id="mobile-menu" class="mobile-nav" aria-label="Mobile navigation" hidden>${nav.map(navItem).join('')}<a class="mobile-free-game" href="${gameAccessLandingUrl}">${svg('play')} Try Our Free Mini-Game!</a><a class="mobile-demo" href="${demoUrl}">Book a product demo</a></nav></header>`;
   }
   function footer() {
     // Omit unconfirmed contact details from the public website.
@@ -140,7 +140,13 @@
     "webinars": { eyebrow:"WEBINARS & EVENTS", title:"Webinars", text:webinars.length ? "" : "Webinar topics and dates will be added when confirmed.", extra:()=>webinars.length ? `<div class="webinar-grid">${webinars.map(webinarCard).join('')}</div>` : `` },
     "about": { eyebrow:"ABOUT QUALIFY.IO", title:"Technology should help us see people better.", text:"Qualify.io is a simulated modular HR technology platform created for a university CRM project. Our concept combines skills-based assessment, AI assistance and process automation to support more meaningful recruitment.", extra:()=>`<div class="page-feature"><h2>Our point of view</h2><p>Less time on repetitive screening. More time understanding the people behind every application.</p></div>` },
     "contact": { eyebrow:"CONTACT", title:"Let's talk about better hiring.", text:"This is a university project simulation. Our contact form and company email will be connected once they are available.", extra:()=>`<div class="page-feature"><h2>Get in touch</h2><p>We will embed your HubSpot contact form here. The address and LinkedIn page can be connected in one place through js/config.js.</p><a href="${demoUrl}" class="btn btn-primary">Request a product demo ${svg('arrow')}</a></div>` },
-    "book-demo": { eyebrow:"PRODUCT DEMONSTRATION", title:"Discover what Qualify.io could do for your team.", text:"See how our modules can be tailored to your recruitment challenges.", extra:()=>config.demoBookingUrl ? `<div class="page-feature"><h2>Book your personalized demo</h2><p>Choose a suitable time in our booking system.</p><a class="btn btn-primary" href="${config.demoBookingUrl}" target="_blank" rel="noopener noreferrer">Open HubSpot booking ${svg('calendar')}</a></div>` : `<div class="page-feature"><h2>Demo booking is being connected</h2><p>Once you add your HubSpot Meetings URL to <code>js/config.js</code>, the booking buttons will lead to your real reservation page.</p><p class="soft-caption">No booking can be submitted in this preview.</p></div>` }
+    "book-demo": { eyebrow:"BOOK A MEETING", title:"Let's talk about smarter hiring.", text:"Explore how Qualify.io's modular concept could support your recruitment process.", extra:()=>{
+      const meetingLink = safeLink(config.demoBookingUrl);
+      const meetingCanEmbed = /^https:\/\/meetings\.hubspot\.com\/[^\s]+/i.test(String(config.demoBookingUrl || ''));
+      return `<div class="page-feature meeting-booking-feature"><div class="meeting-feature-intro"><span class="eyebrow">PERSONALIZED DEMO</span><h2>Find a time that works for you.</h2><p>Schedule a short conversation about our skills assessments, AI recruitment assistant, and recruitment automation concept.</p></div>
+      ${meetingCanEmbed ? `<div class="meetings-iframe-container" data-src="${meetingLink}${meetingLink.includes('?')?'&amp;':'?'}embed=true"></div><p class="meeting-helper-text">Having trouble viewing the calendar? <a href="${meetingLink}" target="_blank" rel="noopener noreferrer">Open the booking page in a new tab ${svg('arrow')}</a></p>` : meetingLink ? `<div class="meeting-placeholder"><div class="meeting-placeholder-icon">${svg('calendar')}</div><h3>Schedule your demo</h3><p>Our meeting booking opens in HubSpot.</p><a class="btn btn-primary" href="${meetingLink}" target="_blank" rel="noopener noreferrer">Choose a time ${svg('calendar')}</a></div>` : `<div class="meeting-placeholder"><div class="meeting-placeholder-icon">${svg('calendar')}</div><h3>Meeting booking coming soon</h3><p>Our HubSpot meeting calendar will appear here once our team connects the scheduling link.</p><span class="meeting-not-live">Booking is not active yet.</span></div>`}
+      <p class="meeting-simulation-note">Qualify.io is a university CRM project simulation. Use fictional test details for demo bookings.</p></div>`;
+    } }
   };
   // Integrated post-article game section for our consideration-stage blog post.
   // The form is embedded directly beneath blog post #2; after submission the existing
@@ -223,6 +229,12 @@
     } else {
       gameFormHost.innerHTML = registrationFallback;
     }
+  }
+  if (document.querySelector('.meetings-iframe-container')) {
+    const meetingScript = document.createElement('script');
+    meetingScript.src = 'https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js';
+    meetingScript.async = true;
+    document.body.appendChild(meetingScript);
   }
   const toggle=document.getElementById('menu-toggle');
   const menu=document.getElementById('mobile-menu');
