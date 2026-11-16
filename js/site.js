@@ -164,7 +164,7 @@
       ${unlocked ? `<div class="blog-game-play-area">
         <div class="blog-game-bar"><strong>Customer Service Rush</strong><span>Interactive 2D skills demo</span></div>
         <iframe src="customer-service-rush.html" title="Play Customer Service Rush, an interactive customer-service scenario" loading="eager" allow="fullscreen"></iframe>
-        <div class="blog-game-play-bottom"><p>This is a university CRM project simulation, not a validated hiring assessment. The game does not collect personal data.</p><a class="text-link" href="customer-service-rush.html" target="_blank" rel="noopener noreferrer">Open the game in a new tab ${svg('arrow')}</a></div>
+        <div class="blog-game-play-bottom"><p></p><a class="text-link" href="customer-service-rush.html" target="_blank" rel="noopener noreferrer">Open the game in a new tab ${svg('arrow')}</a></div>
       </div>` : `<div class="blog-game-grid">
         <div class="blog-game-preview"><img src="${gamePreviewUrl}" alt="Customer Service Rush 2D game: three customers at a service counter" loading="lazy"/><div class="blog-game-preview-caption"><strong>Customer Service Rush</strong><span>Three requests. One shift. Your decisions.</span></div></div>
         <div class="blog-game-form-panel"><span class="eyebrow">FREE INTERACTIVE EXPERIENCE</span><h3>Unlock the Game</h3><p>Try the candidate experience yourself. Complete the short form to access the Customer Service Rush demo.</p>
