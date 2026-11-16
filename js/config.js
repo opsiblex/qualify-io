@@ -5,10 +5,9 @@
  */
 window.QUALIFY_CONFIG = {
   siteName: "Qualify.io",
-  linkedinUrl: "",          // e.g. https://www.linkedin.com/in/qualify-io-b169ab44a
+  linkedinUrl: "https://www.linkedin.com/in/qualify-io-b169ab44a",
 demoBookingUrl: "https://meetings.hubspot.com/moritz-fruehwein/qualifyio-free-demo-meeting",
 hubspotChecklistUrl: "https://opsiblex.github.io/qualify-io/recruitment-efficiency-checklist.html",
-  contactEmail: "",        // qualifyio.recruitment@gmail.com
-  contactLocation: "",     // Optional. Do not invent an office address.
+  contactEmail: "qualifyio.recruitment@gmail.com",
   checklistFile: "assets/recruitment-efficiency-checklist.pdf"
 };
