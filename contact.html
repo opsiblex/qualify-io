@@ -1,24 +1,413 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Qualify.io is a modular recruitment technology platform concept combining skills-based assessments, AI assistance and automation." />
-  <meta name="theme-color" content="#fdfbf8" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Contact | Qualify.io</title>
-  <link rel="icon" href="assets/qualify-logo.png" type="image/png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650;700;750;800;850&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css" />
-  <script defer src="js/config.js"></script>
-  <script defer src="js/content.js"></script>
-  <script defer src="js/webinars.js"></script>
-  <script defer src="js/site.js"></script>
+  <meta name="description"
+        content="Get in touch with Qualify.io or book a free product demo.">
+
+  <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #142657;
+      --blue: #7088CE;
+      --orange: #FF9128;
+      --bg: #FCFBF9;
+      --line: #DCE3F0;
+      --muted: #516383;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, Arial, sans-serif;
+      color: var(--navy);
+      background: var(--bg);
+    }
+
+    .container {
+      max-width: 1120px;
+      padding: 0 22px;
+      margin: auto;
+    }
+
+    .header {
+      background: white;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+
+    .logo {
+      display: block;
+      width: 158px;
+      max-width: 100%;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 21px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--navy);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 650;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover {
+      color: #5374c4;
+    }
+
+    .nav-links .nav-cta {
+      color: white;
+      background: var(--orange);
+      padding: 12px 16px;
+      border-radius: 10px;
+      font-weight: 750;
+    }
+
+    .hero {
+      padding: 74px 0 45px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: #5877c9;
+    }
+
+    h1 {
+      font-size: clamp(38px, 5vw, 60px);
+      line-height: 1.1;
+      letter-spacing: -.055em;
+      margin: 18px 0;
+    }
+
+    h1 span { color: var(--blue); }
+
+    .lead {
+      max-width: 640px;
+      margin: 0 auto;
+      font-size: 16px;
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 19px;
+      margin: 10px 0 50px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      min-height: 235px;
+      box-shadow: 0 12px 30px rgba(20,38,87,.04);
+    }
+
+    .symbol {
+      display: grid;
+      place-items: center;
+      width: 49px;
+      height: 49px;
+      background: #eff3ff;
+      color: #5374c4;
+      border-radius: 14px;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+
+    .card:nth-child(2) .symbol {
+      background: #fff0e3;
+      color: #e88727;
+    }
+
+    .card h2 {
+      font-size: 20px;
+      margin: 0 0 10px;
+    }
+
+    .card p {
+      font-size: 13px;
+      line-height: 1.7;
+      color: var(--muted);
+      margin: 0 0 16px;
+    }
+
+    .card a {
+      font-size: 13px;
+      font-weight: 750;
+      color: #3d60ae;
+      text-decoration: none;
+      overflow-wrap: anywhere;
+      margin-top: auto;
+    }
+
+    .card a:hover { text-decoration: underline; }
+
+    .meeting-section {
+      background: linear-gradient(
+        130deg, #edf2ff, #fff 50%, #fff6ed
+      );
+      border: 1px solid var(--line);
+      border-radius: 23px;
+      padding: 35px 25px 29px;
+      margin-bottom: 75px;
+    }
+
+    .meeting-heading {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 25px;
+    }
+
+    .meeting-heading h2 {
+      font-size: clamp(28px, 3.5vw, 38px);
+      letter-spacing: -.04em;
+      margin: 12px 0;
+    }
+
+    .meeting-heading p {
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.75;
+    }
+
+    .meetings-iframe-container {
+      min-height: 650px;
+      max-width: 910px;
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      margin: auto;
+      overflow: hidden;
+    }
+
+    .fallback {
+      text-align: center;
+      color: var(--muted);
+      font-size: 13px;
+      margin: 16px auto 0;
+      line-height: 1.7;
+    }
+
+    .fallback a {
+      font-weight: 750;
+      color: #365db6;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      background: white;
+      color: var(--muted);
+      text-align: center;
+      padding: 26px 16px;
+      font-size: 12px;
+    }
+
+    @media(max-width: 840px) {
+      .cards { grid-template-columns: 1fr; }
+      .card { min-height: auto; }
+      .nav { justify-content: center; }
+      .nav-links {
+        justify-content: center;
+        gap: 13px;
+      }
+    }
+
+    @media(max-width: 520px) {
+      .hero { padding: 45px 0 33px; }
+      .meeting-section { padding: 25px 12px; }
+      .nav-links a { font-size: 12px; }
+    }
+  </style>
 </head>
-<body data-page="contact">
-  <a href="#main-content" class="sr-only skip-link">Skip to content</a>
-  <div id="site"></div>
-  <noscript>This website uses JavaScript to render its content. Please enable JavaScript.</noscript>
+
+<body>
+
+  <header class="header">
+    <nav class="container nav">
+
+      <a href="index.html">
+        <img
+          class="logo"
+          src="https://43713505.fs1.hubspotusercontent-na1.net/hubfs/43713505/qualifyio/qualify-logo.png"
+          alt="Qualify.io"
+        >
+      </a>
+
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="solutions.html">Solutions</a>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="resources.html">Resources</a>
+        <a href="webinars.html">Webinars</a>
+        <a href="contact.html">Contact</a>
+        <a class="nav-cta" href="#book-demo">
+          Book a Demo
+        </a>
+      </div>
+
+    </nav>
+  </header>
+
+  <main class="container">
+
+    <section class="hero">
+      <div class="eyebrow">Get in touch</div>
+
+      <h1>
+        Let's make hiring
+        <span>more human.</span>
+      </h1>
+
+      <p class="lead">
+        Have a question about Qualify.io, want to stay
+        updated, or interested in seeing our recruitment
+        solutions in action? We'd love to hear from you.
+      </p>
+    </section>
+
+    <section class="cards">
+
+      <!-- EMAIL -->
+
+      <article class="card">
+        <div class="symbol">@</div>
+
+        <h2>Email Us</h2>
+
+        <p>
+          Questions about our platform?
+          Get in touch with the Qualify.io team.
+        </p>
+
+        <a href="mailto:qualifyio.recruitment@gmail.com">
+          qualifyio.recruitment@gmail.com
+        </a>
+      </article>
+
+      <!-- LINKEDIN -->
+
+      <article class="card">
+        <div class="symbol">in</div>
+
+        <h2>Connect on LinkedIn</h2>
+
+        <p>
+          Follow our updates and explore insights
+          on modern recruitment.
+        </p>
+
+        <a
+          href="https://www.linkedin.com/in/qualify-io/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Visit our LinkedIn profile &rarr;
+        </a>
+      </article>
+
+      <!-- DEMO -->
+
+      <article class="card">
+        <div class="symbol">&#128197;</div>
+
+        <h2>Book a Free Demo</h2>
+
+        <p>
+          Discover how skills-based assessments,
+          AI and automation fit together.
+        </p>
+
+        <a href="#book-demo">
+          Choose a meeting time &rarr;
+        </a>
+      </article>
+
+    </section>
+
+    <!-- HUBSPOT MEETING CALENDAR -->
+
+    <section class="meeting-section" id="book-demo">
+
+      <div class="meeting-heading">
+        <div class="eyebrow">
+          Free product demo
+        </div>
+
+        <h2>
+          Find a time that works for you.
+        </h2>
+
+        <p>
+          Choose an available time slot below
+          to book a conversation about Qualify.io.
+        </p>
+      </div>
+
+      <div
+        class="meetings-iframe-container"
+        data-src="https://meetings.hubspot.com/moritz-fruehwein/qualifyio-free-demo-meeting?embed=true"
+      ></div>
+
+      <p class="fallback">
+        If the calendar doesn't load,
+        <a
+          href="https://meetings.hubspot.com/moritz-fruehwein/qualifyio-free-demo-meeting"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          open the HubSpot scheduler directly
+        </a>.
+      </p>
+
+    </section>
+
+  </main>
+
+  <footer>
+    Qualify.io &middot;
+    Smarter recruitment starts beyond the CV.
+  </footer>
+
+  <script
+    src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"
+    defer
+  ></script>
+
 </body>
 </html>
